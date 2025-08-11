@@ -13,6 +13,7 @@ services:
       - PWA_APPNAME=${PWA_APPNAME:-code_server}
     volumes:
       - config:/config
+      - ${WORKSPACE_FOLDER}:/projects
     ports:
       - ${PORT:-8443}:8443
     restart: unless-stopped
