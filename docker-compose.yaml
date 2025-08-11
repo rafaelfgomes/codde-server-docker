@@ -1,0 +1,27 @@
+---
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIMEZONE}
+      - PASSWORD=${USER_PASSWORD}
+      - SUDO_PASSWORD=${ROOT_PASSWORD}
+      - DEFAULT_WORKSPACE=${WORKSPACE_FOLDER}
+      - PWA_APPNAME=${PWA_APPNAME:-code-server}
+    volumes:
+      - config:/config
+    ports:
+      - ${PORT:-8443}:8443
+    restart: unless-stopped
+
+volumes:
+  config:
+    name: code-server-config
+
+networks:
+  net:
+    name: code-server-net
+    external: false
