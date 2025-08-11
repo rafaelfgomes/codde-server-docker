@@ -7,7 +7,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TIMEZONE}
-      - PASSWORD=${USER_PASSWORD}
+      - PASSWORD=${WEB_PASSWORD}
       - SUDO_PASSWORD=${ROOT_PASSWORD}
       - DEFAULT_WORKSPACE=${WORKSPACE_FOLDER}
       - PWA_APPNAME=${PWA_APPNAME:-code-server}
